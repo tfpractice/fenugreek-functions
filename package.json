@@ -1,0 +1,9 @@
+{
+  "name": "fenugreek-functions",
+  "version": "1.0.0",
+  "description": "a collection of applicative programming utilities for handling functions",
+  "main": "index.js",
+  "repository": "https://github.com/tfpractice/fenugreek-functions",
+  "author": "theory f practice",
+  "license": "MIT"
+}
