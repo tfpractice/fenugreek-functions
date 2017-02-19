@@ -2,7 +2,23 @@
   "name": "fenugreek-functions",
   "version": "1.0.0",
   "description": "a collection of applicative programming utilities for handling functions",
-  "main": "index.js",
+  "main": "dist/bundle.cjs.js",
+  "browser": "dist/bundle.umd.js",
+  "module": "dist/bundle.es6.js",
+  "modules.root": "src",
+  "scripts": {
+    "precommit": "yarn test",
+    "prebuild": "rimraf dist",
+    "build": "yarn run build:umd && yarn run build:es6",
+    "build:es6": "NODE_ENV=production rollup -c rollup.es6.config.js",
+    "build:umd": "NODE_ENV=production rollup -c rollup.config.js",
+    "build:dev": "rollup -c rollup.es6.config.js",
+    "precoverage": "yarn test",
+    "coverage": "cat coverage/lcov.info | coveralls",
+    "prepublish": "yarn build",
+    "test": "NODE_ENV=test jest",
+    "doc": "docco src/*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tfpractice/fenugreek-functions"
